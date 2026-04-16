@@ -1,0 +1,15 @@
+com/univates/despesasreceitas/entity/Lancamento$TipoLancamento.class
+com/univates/despesasreceitas/entity/Usuario$Situacao.class
+com/univates/despesasreceitas/service/UsuarioService.class
+com/univates/despesasreceitas/config/SecurityConfig.class
+com/univates/despesasreceitas/repository/UsuarioRepository.class
+com/univates/despesasreceitas/service/LancamentoService.class
+com/univates/despesasreceitas/service/EmailService.class
+com/univates/despesasreceitas/controller/LoginController.class
+com/univates/despesasreceitas/repository/LancamentoRepository.class
+com/univates/despesasreceitas/entity/Usuario.class
+com/univates/despesasreceitas/entity/Lancamento$Situacao.class
+com/univates/despesasreceitas/service/CustomUserDetailsService.class
+com/univates/despesasreceitas/controller/LancamentoController.class
+com/univates/despesasreceitas/entity/Lancamento.class
+com/univates/despesasreceitas/DespesasReceitasApplication.class

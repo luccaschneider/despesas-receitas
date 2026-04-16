@@ -1,0 +1,12 @@
+/home/univates/despesas-receitas/src/main/java/com/univates/despesasreceitas/repository/UsuarioRepository.java
+/home/univates/despesas-receitas/src/main/java/com/univates/despesasreceitas/entity/Usuario.java
+/home/univates/despesas-receitas/src/main/java/com/univates/despesasreceitas/controller/LancamentoController.java
+/home/univates/despesas-receitas/src/main/java/com/univates/despesasreceitas/repository/LancamentoRepository.java
+/home/univates/despesas-receitas/src/main/java/com/univates/despesasreceitas/service/EmailService.java
+/home/univates/despesas-receitas/src/main/java/com/univates/despesasreceitas/service/LancamentoService.java
+/home/univates/despesas-receitas/src/main/java/com/univates/despesasreceitas/config/SecurityConfig.java
+/home/univates/despesas-receitas/src/main/java/com/univates/despesasreceitas/service/CustomUserDetailsService.java
+/home/univates/despesas-receitas/src/main/java/com/univates/despesasreceitas/entity/Lancamento.java
+/home/univates/despesas-receitas/src/main/java/com/univates/despesasreceitas/DespesasReceitasApplication.java
+/home/univates/despesas-receitas/src/main/java/com/univates/despesasreceitas/service/UsuarioService.java
+/home/univates/despesas-receitas/src/main/java/com/univates/despesasreceitas/controller/LoginController.java

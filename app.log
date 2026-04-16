@@ -1,0 +1,144 @@
+nohup: ignoring input
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.3)
+
+2026-04-15T18:23:19.160Z  INFO 333008 --- [           main] c.u.d.DespesasReceitasApplication        : Starting DespesasReceitasApplication v1.0.0 using Java 21.0.10 with PID 333008 (/home/univates/despesas-receitas/target/despesas-receitas-1.0.0.jar started by univates in /home/univates/despesas-receitas)
+2026-04-15T18:23:19.167Z  INFO 333008 --- [           main] c.u.d.DespesasReceitasApplication        : No active profile set, falling back to 1 default profile: "default"
+2026-04-15T18:23:21.059Z  INFO 333008 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-15T18:23:21.225Z  INFO 333008 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 144 ms. Found 2 JPA repository interfaces.
+2026-04-15T18:23:23.073Z  INFO 333008 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9090 (http)
+2026-04-15T18:23:23.082Z  INFO 333008 --- [           main] o.a.catalina.core.AprLifecycleListener   : An older version [1.2.35] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [2.0.5]
+2026-04-15T18:23:23.082Z  INFO 333008 --- [           main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.35] using APR version [1.7.2].
+2026-04-15T18:23:23.090Z  INFO 333008 --- [           main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 3.0.13 30 Jan 2024]
+2026-04-15T18:23:23.116Z  INFO 333008 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-04-15T18:23:23.116Z  INFO 333008 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2026-04-15T18:23:23.413Z  INFO 333008 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-04-15T18:23:23.415Z  INFO 333008 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4127 ms
+2026-04-15T18:23:24.230Z  INFO 333008 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-15T18:23:24.368Z  INFO 333008 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2026-04-15T18:23:24.455Z  INFO 333008 --- [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-04-15T18:23:25.092Z  INFO 333008 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-15T18:23:25.158Z  INFO 333008 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-04-15T18:23:26.033Z  INFO 333008 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@9f2376f
+2026-04-15T18:23:26.037Z  INFO 333008 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-04-15T18:23:26.120Z  WARN 333008 --- [           main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-15T18:23:29.234Z  INFO 333008 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-15T18:23:29.427Z  INFO 333008 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-15T18:23:30.098Z  INFO 333008 --- [           main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-15T18:23:31.625Z  WARN 333008 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-15T18:23:32.379Z  INFO 333008 --- [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6dd65b79, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1b136640, org.springframework.security.web.context.SecurityContextHolderFilter@64d7737c, org.springframework.security.web.header.HeaderWriterFilter@6b909973, org.springframework.web.filter.CorsFilter@22a7ff5d, org.springframework.security.web.csrf.CsrfFilter@3644d305, org.springframework.security.web.authentication.logout.LogoutFilter@515d6c9f, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@2b3247f8, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4c822e9b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@24456c9e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5a362dc7, org.springframework.security.web.access.ExceptionTranslationFilter@7537f638, org.springframework.security.web.access.intercept.AuthorizationFilter@2e2b1310]
+2026-04-15T18:23:33.032Z  INFO 333008 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9090 (http) with context path ''
+2026-04-15T18:23:33.058Z  INFO 333008 --- [           main] c.u.d.DespesasReceitasApplication        : Started DespesasReceitasApplication in 14.986 seconds (process running for 16.335)
+2026-04-15T18:23:38.492Z  INFO 333008 --- [nio-9090-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-15T18:23:38.492Z  INFO 333008 --- [nio-9090-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-04-15T18:23:38.495Z  INFO 333008 --- [nio-9090-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+Hibernate: select u1_0.id,u1_0.login,u1_0.nome,u1_0.senha,u1_0.situacao from usuario u1_0 where u1_0.login=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where (? is null or l1_0.situacao=?) and (? is null or l1_0.tipo_lancamento=?) and (? is null or l1_0.data_lancamento>=?) and (? is null or l1_0.data_lancamento<=?) order by l1_0.data_lancamento desc
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select u1_0.id,u1_0.login,u1_0.nome,u1_0.senha,u1_0.situacao from usuario u1_0 where u1_0.login=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where (? is null or l1_0.situacao=?) and (? is null or l1_0.tipo_lancamento=?) and (? is null or l1_0.data_lancamento>=?) and (? is null or l1_0.data_lancamento<=?) order by l1_0.data_lancamento desc
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select u1_0.id,u1_0.login,u1_0.nome,u1_0.senha,u1_0.situacao from usuario u1_0 where u1_0.login=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where (? is null or l1_0.situacao=?) and (? is null or l1_0.tipo_lancamento=?) and (? is null or l1_0.data_lancamento>=?) and (? is null or l1_0.data_lancamento<=?) order by l1_0.data_lancamento desc
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where (? is null or l1_0.situacao=?) and (? is null or l1_0.tipo_lancamento=?) and (? is null or l1_0.data_lancamento>=?) and (? is null or l1_0.data_lancamento<=?) order by l1_0.data_lancamento desc
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 order by l1_0.data_lancamento desc
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where (? is null or l1_0.situacao=?) and (? is null or l1_0.tipo_lancamento=?) and (? is null or l1_0.data_lancamento>=?) and (? is null or l1_0.data_lancamento<=?) order by l1_0.data_lancamento desc
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select u1_0.id,u1_0.login,u1_0.nome,u1_0.senha,u1_0.situacao from usuario u1_0 where u1_0.login=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where (? is null or l1_0.situacao=?) and (? is null or l1_0.tipo_lancamento=?) and (? is null or l1_0.data_lancamento>=?) and (? is null or l1_0.data_lancamento<=?) order by l1_0.data_lancamento desc
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+2026-04-16T08:10:27.658Z  INFO 333008 --- [nio-9090-exec-6] o.apache.coyote.http11.Http11Processor   : Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+
+java.lang.IllegalArgumentException: Invalid character found in method name [JRMI0x000x02K...]. HTTP method names must be tokens
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:407) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:264) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+
+2026-04-16T08:16:33.540Z  INFO 333008 --- [nio-9090-exec-7] o.apache.coyote.http11.Http11Processor   : Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+
+java.lang.IllegalArgumentException: Invalid character found in method name [0x160x030x000x00i0x010x000x00e0x030x03U0x1c0xa70xe4random1random2random3random40x000x000x0c0x00/0x000x0a0x000x130x0090x000x040x000xff0x010x000x0000x000x0d0x00,0x00*0x000x010x000x030x000x020x060x010x060x030x060x020x020x010x020x030x020x020x030x010x030x030x030x020x040x010x040x030x040x020x010x010x010x030x010x020x050x010x050x030x050x02...]. HTTP method names must be tokens
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:407) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:264) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+
+Hibernate: select u1_0.id,u1_0.login,u1_0.nome,u1_0.senha,u1_0.situacao from usuario u1_0 where u1_0.login=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where (? is null or l1_0.situacao=?) and (? is null or l1_0.tipo_lancamento=?) and (? is null or l1_0.data_lancamento>=?) and (? is null or l1_0.data_lancamento<=?) order by l1_0.data_lancamento desc
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where (? is null or l1_0.situacao=?) and (? is null or l1_0.tipo_lancamento=?) and (? is null or l1_0.data_lancamento>=?) and (? is null or l1_0.data_lancamento<=?) order by l1_0.data_lancamento desc
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where (? is null or l1_0.situacao=?) and (? is null or l1_0.tipo_lancamento=?) and (? is null or l1_0.data_lancamento>=?) and (? is null or l1_0.data_lancamento<=?) order by l1_0.data_lancamento desc
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.id=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.id=?
+Hibernate: delete from lancamento where id=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where (? is null or l1_0.situacao=?) and (? is null or l1_0.tipo_lancamento=?) and (? is null or l1_0.data_lancamento>=?) and (? is null or l1_0.data_lancamento<=?) order by l1_0.data_lancamento desc
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: insert into lancamento (data_lancamento,descricao,situacao,tipo_lancamento,valor) values (?,?,?,?,?)
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where (? is null or l1_0.situacao=?) and (? is null or l1_0.tipo_lancamento=?) and (? is null or l1_0.data_lancamento>=?) and (? is null or l1_0.data_lancamento<=?) order by l1_0.data_lancamento desc
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 order by l1_0.data_lancamento desc
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?

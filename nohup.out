@@ -1,0 +1,525 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.3)
+
+2026-04-02T22:14:56.912Z  INFO 133783 --- [           main] c.u.d.DespesasReceitasApplication        : Starting DespesasReceitasApplication v1.0.0 using Java 21.0.10 with PID 133783 (/home/univates/despesas-receitas/target/despesas-receitas-1.0.0.jar started by univates in /home/univates/despesas-receitas)
+2026-04-02T22:14:56.918Z  INFO 133783 --- [           main] c.u.d.DespesasReceitasApplication        : No active profile set, falling back to 1 default profile: "default"
+2026-04-02T22:14:58.639Z  INFO 133783 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-02T22:14:58.786Z  INFO 133783 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 129 ms. Found 2 JPA repository interfaces.
+2026-04-02T22:15:00.212Z  INFO 133783 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9090 (http)
+2026-04-02T22:15:00.223Z  INFO 133783 --- [           main] o.a.catalina.core.AprLifecycleListener   : An older version [1.2.35] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [2.0.5]
+2026-04-02T22:15:00.224Z  INFO 133783 --- [           main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.35] using APR version [1.7.2].
+2026-04-02T22:15:00.231Z  INFO 133783 --- [           main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 3.0.13 30 Jan 2024]
+2026-04-02T22:15:00.252Z  INFO 133783 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-04-02T22:15:00.253Z  INFO 133783 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2026-04-02T22:15:00.511Z  INFO 133783 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-04-02T22:15:00.514Z  INFO 133783 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3489 ms
+2026-04-02T22:15:01.309Z  INFO 133783 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-02T22:15:01.461Z  INFO 133783 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2026-04-02T22:15:01.544Z  INFO 133783 --- [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-04-02T22:15:02.133Z  INFO 133783 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-02T22:15:02.256Z  INFO 133783 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-04-02T22:15:03.091Z  INFO 133783 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@41be8db9
+2026-04-02T22:15:03.098Z  INFO 133783 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-04-02T22:15:03.156Z  WARN 133783 --- [           main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-02T22:15:06.046Z  INFO 133783 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-02T22:15:06.137Z  INFO 133783 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-02T22:15:06.889Z  INFO 133783 --- [           main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-02T22:15:08.091Z  WARN 133783 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-02T22:15:09.008Z  INFO 133783 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9090 (http) with context path ''
+2026-04-02T22:15:09.034Z  INFO 133783 --- [           main] c.u.d.DespesasReceitasApplication        : Started DespesasReceitasApplication in 13.09 seconds (process running for 14.296)
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.3)
+
+2026-04-02T22:15:12.419Z  INFO 133829 --- [           main] c.u.d.DespesasReceitasApplication        : Starting DespesasReceitasApplication v1.0.0 using Java 21.0.10 with PID 133829 (/home/univates/despesas-receitas/target/despesas-receitas-1.0.0.jar started by univates in /home/univates/despesas-receitas)
+2026-04-02T22:15:12.425Z  INFO 133829 --- [           main] c.u.d.DespesasReceitasApplication        : No active profile set, falling back to 1 default profile: "default"
+2026-04-02T22:15:13.343Z  INFO 133783 --- [nio-9090-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-02T22:15:13.343Z  INFO 133783 --- [nio-9090-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-04-02T22:15:13.352Z  INFO 133783 --- [nio-9090-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 order by l1_0.data_lancamento desc
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+2026-04-02T22:15:15.478Z  INFO 133829 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-02T22:15:15.777Z  INFO 133829 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 249 ms. Found 2 JPA repository interfaces.
+2026-04-02T22:15:17.707Z  INFO 133829 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9090 (http)
+2026-04-02T22:15:17.718Z  INFO 133829 --- [           main] o.a.catalina.core.AprLifecycleListener   : An older version [1.2.35] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [2.0.5]
+2026-04-02T22:15:17.718Z  INFO 133829 --- [           main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.35] using APR version [1.7.2].
+2026-04-02T22:15:17.726Z  INFO 133829 --- [           main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 3.0.13 30 Jan 2024]
+2026-04-02T22:15:17.750Z  INFO 133829 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-04-02T22:15:17.751Z  INFO 133829 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2026-04-02T22:15:18.015Z  INFO 133829 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-04-02T22:15:18.018Z  INFO 133829 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 5473 ms
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 order by l1_0.data_lancamento desc
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+2026-04-02T22:15:18.916Z  INFO 133829 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 order by l1_0.data_lancamento desc
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+2026-04-02T22:15:19.088Z  INFO 133829 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+2026-04-02T22:15:19.234Z  INFO 133829 --- [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 order by l1_0.data_lancamento desc
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+2026-04-02T22:15:19.970Z  INFO 133829 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-02T22:15:20.139Z  INFO 133829 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-04-02T22:15:21.112Z  INFO 133829 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2c2a7d53
+2026-04-02T22:15:21.124Z  INFO 133829 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-04-02T22:15:21.205Z  WARN 133829 --- [           main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 order by l1_0.data_lancamento desc
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 order by l1_0.data_lancamento desc
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+2026-04-02T22:15:24.615Z  INFO 133829 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-02T22:15:24.720Z  INFO 133829 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-02T22:15:25.504Z  INFO 133829 --- [           main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-02T22:15:26.775Z  WARN 133829 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-02T22:15:27.667Z  WARN 133829 --- [           main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2026-04-02T22:15:27.669Z  INFO 133829 --- [           main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-02T22:15:27.676Z  INFO 133829 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-04-02T22:15:27.725Z  INFO 133829 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-04-02T22:15:27.760Z  INFO 133829 --- [           main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-04-02T22:15:27.816Z ERROR 133829 --- [           main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 9090 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 9090 or configure this application to listen on another port.
+
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 order by l1_0.data_lancamento desc
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 order by l1_0.data_lancamento desc
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 order by l1_0.data_lancamento desc
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+2026-04-03T00:13:32.055Z  INFO 133783 --- [nio-9090-exec-7] o.apache.coyote.http11.Http11Processor   : Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+
+java.lang.IllegalArgumentException: Invalid character found in method name [0x160x030x010x000xf20x010x000x000xee0x030x03pFqkb`0xadk0xc6H0x880xcdz;0xea0xfc0x000xd90xcd0x0dv0xb70xb60xf3j=2;V0xf40x110xfb ]. HTTP method names must be tokens
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:407) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:264) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 order by l1_0.data_lancamento desc
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 order by l1_0.data_lancamento desc
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+2026-04-04T00:52:58.711Z  INFO 133783 --- [nio-9090-exec-1] o.apache.coyote.http11.Http11Processor   : Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+
+java.lang.IllegalArgumentException: Invalid character found in method name [0x160x030x010x000xee0x010x000x000xea0x030x030xe0N>0xea!0x8a0xcfI%0xf4+9EN.0x870xa0'0x17[0x92a.R0xdc0xa900x8c0x9a0xba0x940xf1 ]. HTTP method names must be tokens
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:407) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:264) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 order by l1_0.data_lancamento desc
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 order by l1_0.data_lancamento desc
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 order by l1_0.data_lancamento desc
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 order by l1_0.data_lancamento desc
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 order by l1_0.data_lancamento desc
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 order by l1_0.data_lancamento desc
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+2026-04-05T10:23:36.123Z  INFO 133783 --- [io-9090-exec-10] o.apache.coyote.http11.Http11Processor   : Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+
+java.lang.IllegalArgumentException: Invalid character found in method name [JRMI0x000x02K...]. HTTP method names must be tokens
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:407) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:264) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 order by l1_0.data_lancamento desc
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 order by l1_0.data_lancamento desc
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 order by l1_0.data_lancamento desc
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+2026-04-06T10:46:42.587Z  INFO 133783 --- [nio-9090-exec-2] o.apache.coyote.http11.Http11Processor   : Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+
+java.lang.IllegalArgumentException: Invalid character found in method name [0x160x030x010x000xee0x010x000x000xea0x030x030x8a0x08Ya0xe0{0x840x010x8a0x930x90!0xd00xdboc0xaa0xe00x8e0x950xa50xa9N0x11_0xe5C`0xad0x870xbb0xd2 ]. HTTP method names must be tokens
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:407) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:264) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 order by l1_0.data_lancamento desc
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 order by l1_0.data_lancamento desc
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 order by l1_0.data_lancamento desc
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 order by l1_0.data_lancamento desc
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 order by l1_0.data_lancamento desc
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 order by l1_0.data_lancamento desc
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 order by l1_0.data_lancamento desc
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 order by l1_0.data_lancamento desc
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+2026-04-08T04:50:49.382Z  INFO 133783 --- [nio-9090-exec-6] o.apache.coyote.http11.Http11Processor   : Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+
+java.lang.IllegalArgumentException: Invalid character found in method name [0x160x030x010x00{0x010x000x00w0x030x030xec0x1a0xcc0x0b0xcf0xc30xb9[r0xac0x7fi/0xf60x8f0x930xd50xd30xf50xf70x00v0xfda0x9d0xfb0xa6{,0xbb0xcc0xde0x000x000x1a0xc0/0xc0+0xc00x110xc00x070xc00x130xc00x090xc00x140xc00x0a0x000x050x00/0x0050xc00x120x000x0a0x010x000x0040x000x050x000x050x010x000x000x000x000x000x0a0x000x080x000x060x000x170x000x180x000x190x000x0b0x000x020x010x000x000x0d0x000x100x000x0e0x040x010x040x030x020x010x020x030x040x010x050x010x060x010xff0x010x000x010x00...]. HTTP method names must be tokens
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:407) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:264) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 order by l1_0.data_lancamento desc
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 order by l1_0.data_lancamento desc
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+2026-04-09T05:08:42.139Z  INFO 133783 --- [io-9090-exec-10] o.apache.coyote.http11.Http11Processor   : Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+
+java.lang.IllegalArgumentException: Invalid character found in method name [0x160x030x010x00{0x010x000x00w0x030x030xbbi0x06G0xbe0xc70xca0x90EVv*^PP(0xd20xe60xceF0xd20x910xce0xd4_0xd8Z0xb10xae0x8d0xfe50x000x000x1a0xc0/0xc0+0xc00x110xc00x070xc00x130xc00x090xc00x140xc00x0a0x000x050x00/0x0050xc00x120x000x0a0x010x000x0040x000x050x000x050x010x000x000x000x000x000x0a0x000x080x000x060x000x170x000x180x000x190x000x0b0x000x020x010x000x000x0d0x000x100x000x0e0x040x010x040x030x020x010x020x030x040x010x050x010x060x010xff0x010x000x010x00...]. HTTP method names must be tokens
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:407) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:264) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 order by l1_0.data_lancamento desc
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 order by l1_0.data_lancamento desc
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+2026-04-10T17:08:41.741Z  INFO 133783 --- [nio-9090-exec-3] o.apache.coyote.http11.Http11Processor   : Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+
+java.lang.IllegalArgumentException: Invalid character found in method name [0x160x030x010x01g0x010x000x01c0x030x03M10x91/X0xc30xde0xf00x86QRB0xc70xcb50x8b0xb90xecWZ'0xc10xa60xec0x9f0xdb[0xf30xf2(|0x93 ]. HTTP method names must be tokens
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:407) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:264) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+
+2026-04-10T17:08:45.587Z  INFO 133783 --- [nio-9090-exec-2] o.apache.coyote.http11.Http11Processor   : Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+
+java.lang.IllegalArgumentException: Invalid character found in method name [0x160x030x010x01g0x010x000x01c0x030x030x830x10?0x060x030xdc]0xfb0xa2v0xe80xea0xf5;\/0xfb0xd2O0xbb0xbb0x83Z(0x800xea0xebT0xde/0xd40x9b ]. HTTP method names must be tokens
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:407) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:264) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+
+2026-04-10T17:08:47.039Z  INFO 133783 --- [nio-9090-exec-7] o.apache.coyote.http11.Http11Processor   : Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+
+java.lang.IllegalArgumentException: Invalid character found in method name [0x160x030x010x01g0x010x000x01c0x030x03Nf0xb0{0xe3*40x810xe10xae>0x030xb60x9bz0xfcg0x140x850xf60xedp0x9d0xb90xdd0xa80x930x060xc7%<0xbf ]. HTTP method names must be tokens
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:407) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:264) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 order by l1_0.data_lancamento desc
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 order by l1_0.data_lancamento desc
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 order by l1_0.data_lancamento desc
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 order by l1_0.data_lancamento desc
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 order by l1_0.data_lancamento desc
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+2026-04-11T06:54:19.446Z  INFO 133783 --- [nio-9090-exec-7] o.apache.coyote.http11.Http11Processor   : Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+
+java.lang.IllegalArgumentException: Invalid character found in method name [0x160x030x010x00{0x010x000x00w0x030x03`0xf280xf40x930xd2SZ0x0c0xe1_0x1a0xb4zn0x8b0x9ecw0xac0xf9z0x0b0xb0AiM0x01>.*L0x000x000x1a0xc0/0xc0+0xc00x110xc00x070xc00x130xc00x090xc00x140xc00x0a0x000x050x00/0x0050xc00x120x000x0a0x010x000x0040x000x050x000x050x010x000x000x000x000x000x0a0x000x080x000x060x000x170x000x180x000x190x000x0b0x000x020x010x000x000x0d0x000x100x000x0e0x040x010x040x030x020x010x020x030x040x010x050x010x060x010xff0x010x000x010x00...]. HTTP method names must be tokens
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:407) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:264) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 order by l1_0.data_lancamento desc
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 order by l1_0.data_lancamento desc
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 order by l1_0.data_lancamento desc
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+2026-04-12T09:26:46.897Z  INFO 133783 --- [nio-9090-exec-8] o.apache.coyote.http11.Http11Processor   : Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+
+java.lang.IllegalArgumentException: Invalid character found in method name [0x160x030x010x000xf20x010x000x000xee0x030x030x100xf70xca0x05fV0xc30x1c0x9e@0x0c0x8c0x82I0xa40xfd0xee0x950xf9A0xd70xb4dI0xbf0x8fm^0x1f0xebG< ]. HTTP method names must be tokens
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:407) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:264) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 order by l1_0.data_lancamento desc
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 order by l1_0.data_lancamento desc
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 order by l1_0.data_lancamento desc
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 order by l1_0.data_lancamento desc
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 order by l1_0.data_lancamento desc
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 order by l1_0.data_lancamento desc
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 order by l1_0.data_lancamento desc
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 order by l1_0.data_lancamento desc
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 order by l1_0.data_lancamento desc
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 order by l1_0.data_lancamento desc
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+Hibernate: select l1_0.id,l1_0.data_lancamento,l1_0.descricao,l1_0.situacao,l1_0.tipo_lancamento,l1_0.valor from lancamento l1_0 where l1_0.tipo_lancamento=?
+2026-04-14T18:18:39.665Z  INFO 133783 --- [nio-9090-exec-9] o.apache.coyote.http11.Http11Processor   : Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+
+java.lang.IllegalArgumentException: Invalid character found in method name [MGLNDD_177.44.248.66_90900x0a...]. HTTP method names must be tokens
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:407) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:264) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.19.jar!/:na]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+
+2026-04-14T22:11:46.876Z  INFO 133783 --- [ionShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-14T22:11:47.310Z  INFO 133783 --- [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-04-14T22:11:47.435Z  INFO 133783 --- [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
