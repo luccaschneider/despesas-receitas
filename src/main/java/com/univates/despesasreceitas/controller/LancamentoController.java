@@ -54,8 +54,8 @@ public class LancamentoController {
 
     @PostMapping("/salvar")
     public String salvar(@ModelAttribute Lancamento lancamento, RedirectAttributes ra) {
-        lancamentoService.salvar(lancamento);
-        emailService.enviarEmailCriacao(lancamento);
+        Lancamento salvo = lancamentoService.salvar(lancamento);
+        emailService.enviarEmailCriacao(salvo);
         ra.addFlashAttribute("sucesso", "Lançamento criado com sucesso!");
         return "redirect:/";
     }
@@ -71,8 +71,8 @@ public class LancamentoController {
     @PostMapping("/atualizar/{id}")
     public String atualizar(@PathVariable Long id, @ModelAttribute Lancamento lancamento, RedirectAttributes ra) {
         lancamento.setId(id);
-        lancamentoService.salvar(lancamento);
-        emailService.enviarEmailAtualizacao(lancamento);
+        Lancamento salvo = lancamentoService.salvar(lancamento);
+        emailService.enviarEmailAtualizacao(salvo);
         ra.addFlashAttribute("sucesso", "Lançamento atualizado com sucesso!");
         return "redirect:/";
     }

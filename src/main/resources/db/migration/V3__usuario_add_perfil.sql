@@ -1,0 +1,3 @@
+ALTER TABLE usuario ADD COLUMN IF NOT EXISTS perfil VARCHAR(10) NOT NULL DEFAULT 'USER';
+
+UPDATE usuario SET perfil = 'ADMIN' WHERE login = 'admin';

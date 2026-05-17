@@ -16,14 +16,20 @@ public class CustomUserDetailsService implements UserDetailsService {
     private UsuarioRepository usuarioRepository;
 
     @Override
-    public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
-        Usuario usuario = usuarioRepository.findByLogin(login)
-            .orElseThrow(() -> new UsernameNotFoundException("Usuário não encontrado: " + login));
+    public UserDetails loadUserByUsername(String loginOuEmail) throws UsernameNotFoundException {
+        Usuario usuario = usuarioRepository.findByLoginOrEmail(loginOuEmail.trim())
+            .orElseThrow(() -> new UsernameNotFoundException("Usuário não encontrado: " + loginOuEmail));
+
+        if (usuario.getSituacao() != Usuario.Situacao.ATIVO) {
+            throw new UsernameNotFoundException("Usuário inativo: " + loginOuEmail);
+        }
+
+        String role = (usuario.getPerfil() == Usuario.Perfil.ADMIN) ? "ADMIN" : "USER";
 
         return User.builder()
             .username(usuario.getLogin())
             .password("{noop}" + usuario.getSenha())
-            .roles("USER")
+            .roles(role)
             .build();
     }
 }

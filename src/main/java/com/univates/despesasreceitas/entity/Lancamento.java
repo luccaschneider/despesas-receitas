@@ -1,17 +1,12 @@
 package com.univates.despesasreceitas.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Entity
 @Table(name = "lancamento")
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 public class Lancamento {
 
     @Id
@@ -36,5 +31,67 @@ public class Lancamento {
     private Situacao situacao;
 
     public enum TipoLancamento { RECEITA, DESPESA }
+
     public enum Situacao { PENDENTE, PAGO, CANCELADO }
+
+    public Lancamento() {
+    }
+
+    public Lancamento(Long id, String descricao, LocalDate dataLancamento, BigDecimal valor,
+                      TipoLancamento tipoLancamento, Situacao situacao) {
+        this.id = id;
+        this.descricao = descricao;
+        this.dataLancamento = dataLancamento;
+        this.valor = valor;
+        this.tipoLancamento = tipoLancamento;
+        this.situacao = situacao;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public LocalDate getDataLancamento() {
+        return dataLancamento;
+    }
+
+    public void setDataLancamento(LocalDate dataLancamento) {
+        this.dataLancamento = dataLancamento;
+    }
+
+    public BigDecimal getValor() {
+        return valor;
+    }
+
+    public void setValor(BigDecimal valor) {
+        this.valor = valor;
+    }
+
+    public TipoLancamento getTipoLancamento() {
+        return tipoLancamento;
+    }
+
+    public void setTipoLancamento(TipoLancamento tipoLancamento) {
+        this.tipoLancamento = tipoLancamento;
+    }
+
+    public Situacao getSituacao() {
+        return situacao;
+    }
+
+    public void setSituacao(Situacao situacao) {
+        this.situacao = situacao;
+    }
 }

@@ -1,0 +1,42 @@
+# Variáveis de ambiente
+.env
+
+# Build output (Maven)
+target/
+!.mvn/wrapper/maven-wrapper.jar
+
+# Bytecode
+*.class
+
+# Artefatos empacotados
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+
+# Logs
+*.log
+logs/
+
+# IntelliJ IDEA — arquivos locais e de usuário (project config pode ser commitado)
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/usage.statistics.xml
+.idea/dictionaries/
+.idea/shelf/
+.idea/httpRequests/
+.idea/dataSources/
+.idea/dataSources.local.xml
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# VS Code
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db

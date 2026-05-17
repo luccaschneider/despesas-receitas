@@ -1,0 +1,13 @@
+CREATE TABLE IF NOT EXISTS configuracao_email (
+    id BIGINT NOT NULL PRIMARY KEY,
+    enabled BOOLEAN NOT NULL DEFAULT FALSE,
+    destinatario VARCHAR(150) NOT NULL,
+    remetente VARCHAR(150) NOT NULL DEFAULT '',
+    smtp_host VARCHAR(255) NOT NULL DEFAULT '',
+    smtp_port INT NOT NULL DEFAULT 587,
+    smtp_username VARCHAR(255) NOT NULL DEFAULT '',
+    smtp_password VARCHAR(512) NOT NULL DEFAULT '',
+    smtp_auth BOOLEAN NOT NULL DEFAULT TRUE,
+    smtp_starttls BOOLEAN NOT NULL DEFAULT TRUE,
+    smtp_debug BOOLEAN NOT NULL DEFAULT FALSE
+);
