@@ -46,6 +46,7 @@ header {
     transition: background 0.2s ease, border-color 0.2s ease;
 }
 
+.btn-logout {
     display: inline-flex;
     align-items: center;
     justify-content: center;
