@@ -195,10 +195,47 @@ deploy_common::run_ansible_deploy() {
   )
 }
 
+deploy_common::wait_for_app_health() {
+  local server_port="$1"
+  local timeout_seconds="${2:-${APP_HEALTH_WAIT_SECONDS:-120}}"
+  local poll_seconds="${3:-${APP_HEALTH_POLL_SECONDS:-3}}"
+  local health_url="http://127.0.0.1:${server_port}/actuator/health"
+  local elapsed=0
+  local response
+
+  if ! command -v curl &> /dev/null; then
+    echo "[AVISO] curl nao encontrado — pulando espera do health check." >&2
+    return 0
+  fi
+
+  echo ""
+  echo "    Aguardando aplicacao em ${health_url}"
+  echo "    (Spring Boot + Flyway; timeout ${timeout_seconds}s, intervalo ${poll_seconds}s)"
+
+  while (( elapsed < timeout_seconds )); do
+    if response="$(curl -sf --max-time 5 "${health_url}" 2>/dev/null)" \
+        && grep -qE '"status"[[:space:]]*:[[:space:]]*"UP"' <<< "${response}"; then
+      echo "    Aplicacao respondeu UP apos ~${elapsed}s."
+      return 0
+    fi
+
+    sleep "${poll_seconds}"
+    elapsed=$((elapsed + poll_seconds))
+    echo "    ... ainda iniciando (${elapsed}s / ${timeout_seconds}s)"
+  done
+
+  echo "[ERRO] Timeout: aplicacao nao ficou UP em ${timeout_seconds}s." >&2
+  echo "       Logs: cd ${APP_HEALTH_LOG_DIR:-/opt/app} && docker compose logs --tail 50 app" >&2
+  return 1
+}
+
 deploy_common::print_deploy_success() {
   local environment="$1"
   local server_port="$2"
   local app_dir="$3"
+
+  export APP_HEALTH_LOG_DIR="${app_dir}"
+  deploy_common::wait_for_app_health "${server_port}"
 
   local vm_ip
   vm_ip="$(hostname -I 2>/dev/null | awk '{print $1}')"

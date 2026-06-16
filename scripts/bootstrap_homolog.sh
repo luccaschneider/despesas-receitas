@@ -72,6 +72,28 @@ else
   deploy_common::print_deploy_success() {
     local server_port="$2"
     local app_dir="$3"
+    if ! command -v curl &> /dev/null; then
+      echo "[AVISO] curl ausente — exibindo URL sem aguardar health check." >&2
+    else
+      local health_url="http://127.0.0.1:${server_port}/actuator/health"
+      local elapsed=0 timeout_seconds=120 poll_seconds=3 response
+      echo ""
+      echo "    Aguardando aplicacao em ${health_url} (timeout ${timeout_seconds}s)..."
+      while (( elapsed < timeout_seconds )); do
+        if response="$(curl -sf --max-time 5 "${health_url}" 2>/dev/null)" \
+            && grep -qE '"status"[[:space:]]*:[[:space:]]*"UP"' <<< "${response}"; then
+          echo "    Aplicacao respondeu UP apos ~${elapsed}s."
+          break
+        fi
+        sleep "${poll_seconds}"
+        elapsed=$((elapsed + poll_seconds))
+        echo "    ... ainda iniciando (${elapsed}s / ${timeout_seconds}s)"
+      done
+      if (( elapsed >= timeout_seconds )); then
+        echo "[ERRO] Timeout aguardando health check." >&2
+        exit 1
+      fi
+    fi
     local vm_ip
     vm_ip="$(hostname -I 2>/dev/null | awk '{print $1}')"
     vm_ip="${vm_ip:-<IP_DA_VM>}"
@@ -161,6 +183,5 @@ deploy_common::run_ansible_deploy \
   "${DB_PASSWORD}" \
   "${SERVER_PORT}"
 
-echo ""
-echo "==> [5/5] Verificando resultado..."
+echo "==> [5/5] Aguardando aplicacao e verificando resultado..."
 deploy_common::print_deploy_success "homolog" "${SERVER_PORT}" "${APP_DIR}"

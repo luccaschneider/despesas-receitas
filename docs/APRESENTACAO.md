@@ -39,6 +39,8 @@ sudo docker images
 curl -fsSL https://raw.githubusercontent.com/luccaschneider/despesas-receitas/main/scripts/bootstrap_homolog.sh | sudo bash
 ```
 
+O script so exibe a URL apos `/actuator/health` retornar `UP` (ate 120s).
+
 ```bash
 curl -s http://localhost:8081/actuator/health
 ```
