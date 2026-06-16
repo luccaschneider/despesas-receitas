@@ -32,8 +32,8 @@ jobs:
       - name: Run tests and JaCoCo
         run: mvn clean test
 
-      - name: SonarQube analysis
-        run: mvn sonar:sonar -Dsonar.organization=luccaschneider -Dsonar.projectKey=luccaschneider_despesas-receitas -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+      - name: QA (Checkstyle)
+        run: mvn checkstyle:check
 
       - name: Docker build validation
         run: docker build -t meu-app .

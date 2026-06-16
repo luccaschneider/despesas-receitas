@@ -1,7 +1,6 @@
 package com.univates.despesasreceitas.service;
 
 import com.univates.despesasreceitas.config.AnsibleDeployProperties;
-import com.univates.despesasreceitas.config.AnsibleDeployProperties.Environment;
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
