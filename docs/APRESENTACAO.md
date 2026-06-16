@@ -205,6 +205,19 @@ Repita o CRUD básico. **Destaque:** os dados de produção são independentes d
 
 ### 8. Comandos úteis para encerrar ou troubleshooting
 
+**Reset rápido entre testes** (para a VM, entre um bootstrap e outro):
+
+```bash
+# Padrão: para containers, volumes Docker, Postgres do SO e libera portas
+curl -fsSL https://raw.githubusercontent.com/luccaschneider/despesas-receitas/main/scripts/reset_vm.sh | sudo bash
+
+# Reset completo (apaga também /opt/app/* e /opt/despesas-receitas)
+curl -fsSL https://raw.githubusercontent.com/luccaschneider/despesas-receitas/main/scripts/reset_vm.sh | sudo RESET_PURGE_DIRS=1 bash
+
+# Reset + apagar imagens Docker da app (build do zero na próxima vez)
+curl -fsSL https://raw.githubusercontent.com/luccaschneider/despesas-receitas/main/scripts/reset_vm.sh | sudo RESET_PURGE_DIRS=1 RESET_PURGE_IMAGES=1 bash
+```
+
 ```bash
 # Status dos dois ambientes
 sudo docker compose -f /opt/app/homolog/docker-compose.yml ps
@@ -226,6 +239,9 @@ sudo docker compose -f /opt/app/prod/docker-compose.yml logs -f app
 ## Resumo dos comandos (cola rápida)
 
 ```bash
+# 0. Limpar VM entre testes
+curl -fsSL https://raw.githubusercontent.com/luccaschneider/despesas-receitas/main/scripts/reset_vm.sh | sudo bash
+
 # 1. VM zerada — mostrar estado vazio
 docker ps -a && docker images
 

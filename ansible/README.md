@@ -6,8 +6,8 @@ Este diretorio contem os playbooks usados pelo painel `/admin/ambientes`, pelos 
 
 - `inventory/hosts.yml`: inventario padrao para deploy **na propria VM** (`ansible_connection: local`).
 - `inventory/hosts-dev.yml`: inventario para dev local com tunel SSH ate a VM.
-- `group_vars/homolog.yml`: variaveis de homologacao.
-- `group_vars/prod.yml`: variaveis de producao.
+- `inventory/group_vars/homolog.yml`: variaveis de homologacao.
+- `inventory/group_vars/prod.yml`: variaveis de producao.
 - `playbooks/deploy.yml`: clona/atualiza o repositorio, gera `.env` e executa `docker compose up -d --build`.
 - `playbooks/stop.yml`: executa `docker compose stop` sem remover volumes.
 - `playbooks/status.yml`: consulta `docker compose ps` e emite `ENV_STATUS=running|stopped`.
