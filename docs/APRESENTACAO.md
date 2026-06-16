@@ -203,17 +203,14 @@ Repita o CRUD básico. **Destaque:** os dados de produção são independentes d
 
 ### 8. Comandos úteis para encerrar ou troubleshooting
 
-**Reset rápido entre testes** (para a VM, entre um bootstrap e outro):
+**Reset entre testes** (deixa a VM limpa para um novo bootstrap):
 
 ```bash
-# Padrão: para containers, volumes Docker, Postgres do SO e libera portas
+# Padrao: remove containers, volumes, redes, /opt/app/*, /opt/despesas-receitas e imagens homolog-app/prod-app
 curl -fsSL https://raw.githubusercontent.com/luccaschneider/despesas-receitas/main/scripts/reset_vm.sh | sudo bash
 
-# Reset completo (apaga também /opt/app/* e /opt/despesas-receitas)
-curl -fsSL https://raw.githubusercontent.com/luccaschneider/despesas-receitas/main/scripts/reset_vm.sh | sudo RESET_PURGE_DIRS=1 bash
-
-# Reset + apagar imagens Docker da app (build do zero na próxima vez)
-curl -fsSL https://raw.githubusercontent.com/luccaschneider/despesas-receitas/main/scripts/reset_vm.sh | sudo RESET_PURGE_DIRS=1 RESET_PURGE_IMAGES=1 bash
+# Modo rapido: so para/remove containers e volumes (mantem clones e imagens)
+curl -fsSL https://raw.githubusercontent.com/luccaschneider/despesas-receitas/main/scripts/reset_vm.sh | sudo RESET_QUICK=1 bash
 ```
 
 ```bash

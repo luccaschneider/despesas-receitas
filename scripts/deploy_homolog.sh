@@ -29,6 +29,7 @@ deploy_common::run_ansible_deploy \
   "${ANSIBLE_INVENTORY}" \
   "${REPO_URL}" \
   "${BRANCH}" \
-  "${DB_PASSWORD}"
+  "${DB_PASSWORD}" \
+  "${SERVER_PORT}"
 
 deploy_common::print_deploy_success "homolog" "${SERVER_PORT}" "${APP_DIR}"

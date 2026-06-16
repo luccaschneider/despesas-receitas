@@ -156,6 +156,7 @@ deploy_common::run_ansible_deploy() {
   local repo_url="${4:-$(deploy_common::default_repo_url)}"
   local branch="${5:-$(deploy_common::default_branch)}"
   local db_password="${6:-$(deploy_common::default_db_password)}"
+  local server_port="${7:-}"
 
   if [[ ! -f "${ansible_root}/${inventory}" ]]; then
     echo "[ERRO] Inventario Ansible nao encontrado: ${ansible_root}/${inventory}" >&2
@@ -167,10 +168,22 @@ deploy_common::run_ansible_deploy() {
     exit 1
   fi
 
+  local extra_vars=(
+    -e "repo_url=${repo_url}"
+    -e "branch=${branch}"
+    -e "db_password=${db_password}"
+  )
+  if [[ -n "${server_port}" ]]; then
+    extra_vars+=(-e "server_port=${server_port}")
+  fi
+
   echo "    Ansible root  = ${ansible_root}"
   echo "    Inventario    = ${inventory}"
   echo "    Ambiente      = ${environment}"
   echo "    Repositorio   = ${repo_url} (${branch})"
+  if [[ -n "${server_port}" ]]; then
+    echo "    SERVER_PORT   = ${server_port}"
+  fi
 
   (
     cd "${ansible_root}"
@@ -178,9 +191,7 @@ deploy_common::run_ansible_deploy() {
       -i "${inventory}" \
       ansible/playbooks/deploy.yml \
       -l "${environment}" \
-      -e "repo_url=${repo_url}" \
-      -e "branch=${branch}" \
-      -e "db_password=${db_password}"
+      "${extra_vars[@]}"
   )
 }
 

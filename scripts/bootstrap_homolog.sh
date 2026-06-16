@@ -158,7 +158,8 @@ deploy_common::run_ansible_deploy \
   "${ANSIBLE_INVENTORY}" \
   "${REPO_URL}" \
   "${BRANCH}" \
-  "${DB_PASSWORD}"
+  "${DB_PASSWORD}" \
+  "${SERVER_PORT}"
 
 echo ""
 echo "==> [5/5] Verificando resultado..."

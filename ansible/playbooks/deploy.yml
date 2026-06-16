@@ -36,6 +36,11 @@
         update: true
         accept_hostkey: true
 
+    - name: Remove previous environment file
+      ansible.builtin.file:
+        path: "{{ app_dir }}/.env"
+        state: absent
+
     - name: Render environment file for Docker Compose
       ansible.builtin.template:
         src: "{{ playbook_dir }}/../templates/app.env.j2"
