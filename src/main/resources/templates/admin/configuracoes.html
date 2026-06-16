@@ -15,6 +15,7 @@
     </div>
     <div class="header-user">
         <a th:href="@{/}" class="btn-header-link">← Lançamentos</a>
+        <a th:href="@{/admin/ambientes}" class="btn-header-link">Ambientes</a>
         <span sec:authentication="name">admin</span>
         <form th:action="@{/logout}" method="post">
             <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>

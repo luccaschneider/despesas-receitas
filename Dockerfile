@@ -7,10 +7,11 @@ RUN mvn -B package -DskipTests
 
 FROM eclipse-temurin:17-jre-alpine
 WORKDIR /app
-RUN apk add --no-cache wget \
+RUN apk add --no-cache wget ansible openssh-client git \
     && addgroup -S spring && adduser -S spring -G spring
 USER spring:spring
 COPY --from=build /app/target/despesas-receitas-1.0.0.jar app.jar
+COPY --chown=spring:spring ansible ./ansible
 # Porta em tempo de execução: defina SERVER_PORT (padrão 8080 na aplicação)
 EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "app.jar"]

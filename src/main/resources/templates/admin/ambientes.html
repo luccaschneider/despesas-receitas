@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ambientes — Admin</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<header>
+    <div class="header-content">
+        <h1>Ambientes</h1>
+        <p>Controle de deploy e parada via Ansible</p>
+    </div>
+    <div class="header-user">
+        <a th:href="@{/}" class="btn-header-link">Lancamentos</a>
+        <a th:href="@{/admin/configuracoes}" class="btn-header-link">Configuracoes</a>
+        <span sec:authentication="name">admin</span>
+        <form th:action="@{/logout}" method="post">
+            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+            <button type="submit" class="btn-logout">Sair</button>
+        </form>
+    </div>
+</header>
+
+<main class="container">
+    <div th:if="${sucesso}" class="alert alert-sucesso" th:text="${sucesso}"></div>
+    <div th:if="${erro}" class="alert alert-erro" role="alert" th:text="${erro}"></div>
+
+    <div th:if="${!ansibleEnabled}" class="alert alert-erro" role="alert">
+        A execucao de Ansible esta desabilitada em <code>app.deploy.ansible.enabled</code>.
+    </div>
+
+    <section class="tabela-container ambientes-card">
+        <div class="tabela-header">
+            <div>
+                <h2>Ambientes configurados</h2>
+                <p class="admin-config-h">
+                    Os botoes executam os playbooks em <code>ansible/playbooks</code> usando o inventario configurado
+                    em <code>app.deploy.ansible.inventory</code>.
+                </p>
+            </div>
+            <a class="btn btn-secondary" th:href="@{/admin/ambientes}">Atualizar status</a>
+        </div>
+
+        <div class="ambientes-grid">
+            <article class="ambiente-card" th:each="ambiente : ${ambientes}">
+                <div class="ambiente-card-header">
+                    <div>
+                        <h3 th:text="${ambiente.name()}">Homologacao</h3>
+                        <a th:if="${ambiente.url()}" th:href="${ambiente.url()}" th:text="${ambiente.url()}"
+                           target="_blank" rel="noopener noreferrer">http://localhost:8081</a>
+                    </div>
+                    <span th:class="'ambiente-status ' + ${ambiente.status().cssClass}"
+                          th:text="${ambiente.status().label}">Rodando</span>
+                </div>
+
+                <div class="ambiente-actions">
+                    <form th:action="@{/admin/ambientes/{id}/rodar(id=${ambiente.id()})}" method="post">
+                        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+                        <button type="submit" class="btn btn-primary" th:disabled="${!ansibleEnabled}">
+                            Rodar
+                        </button>
+                    </form>
+
+                    <form th:action="@{/admin/ambientes/{id}/stop(id=${ambiente.id()})}" method="post"
+                          th:onsubmit="|return confirm('Confirmar parada do ambiente ${ambiente.name()}?')|">
+                        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+                        <button type="submit" class="btn btn-danger" th:disabled="${!ansibleEnabled}">
+                            Stop
+                        </button>
+                    </form>
+                </div>
+            </article>
+
+            <div th:if="${#lists.isEmpty(ambientes)}" class="vazio">
+                Nenhum ambiente configurado.
+            </div>
+        </div>
+    </section>
+</main>
+<footer><p>Univates — Gerencia de Configuracao de Software — 2026/A</p></footer>
+</body>
+</html>

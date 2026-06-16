@@ -1,0 +1,14 @@
+---
+- name: Stop application environment
+  hosts: all
+  become: true
+  gather_facts: false
+
+  tasks:
+    - name: Stop Docker Compose services without removing volumes
+      ansible.builtin.command: docker compose stop
+      args:
+        chdir: "{{ app_dir }}"
+      register: compose_stop
+      changed_when: "'Stopped' in compose_stop.stdout or 'Stopping' in compose_stop.stdout"
+      failed_when: compose_stop.rc != 0 and 'no configuration file provided' not in compose_stop.stderr

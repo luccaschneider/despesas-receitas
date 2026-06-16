@@ -1,0 +1,23 @@
+repo_url: https://github.com/luccaschneider/despesas-receitas.git
+branch: main
+app_dir: /opt/app/homolog
+
+postgres_db: homolog_db
+postgres_port: "5432"
+db_url: jdbc:postgresql://db:5432/homolog_db
+db_user: postgres
+db_password: despesas_demo_2026
+
+server_port: "8081"
+spring_profiles_active: homolog
+
+app_email_enabled: "false"
+app_email_destinatario: ""
+app_email_remetente: ""
+app_email_smtp_host: ""
+app_email_smtp_port: "587"
+app_email_smtp_username: ""
+app_email_smtp_password: ""
+app_email_smtp_auth: "true"
+app_email_smtp_starttls: "true"
+app_email_smtp_debug: "false"

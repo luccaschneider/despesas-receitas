@@ -1,9 +1,4 @@
 #!/usr/bin/env bash
-# ==============================================================================
-# setup_vm.sh — Fase H: Provisionamento inicial da VM
-# Executar UMA ÚNICA VEZ como root (ou via sudo) na VM Linux (Ubuntu/Debian).
-# Uso: sudo bash scripts/setup_vm.sh
-# ==============================================================================
 set -euo pipefail
 
 # --- Validação: deve rodar como root ---
@@ -67,6 +62,9 @@ echo ""
 echo "========================================================"
 echo "  Setup concluído com sucesso!"
 echo "  Próximos passos:"
-echo "    - Homologação : sudo bash scripts/deploy_homolog.sh"
-echo "    - Produção    : sudo bash scripts/deploy_prod.sh"
+echo "    - Tudo em 1 comando (recomendado):"
+echo "        curl -fsSL https://raw.githubusercontent.com/luccaschneider/despesas-receitas/main/scripts/bootstrap_homolog.sh | sudo bash"
+echo "    - Ou manualmente:"
+echo "        sudo bash scripts/deploy_homolog.sh"
+echo "        sudo bash scripts/deploy_prod.sh"
 echo "========================================================"

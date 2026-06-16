@@ -1,0 +1,39 @@
+---
+- name: Deploy application environment
+  hosts: all
+  become: true
+  gather_facts: false
+
+  pre_tasks:
+    - name: Validate database password
+      ansible.builtin.fail:
+        msg: "Configure db_password no group_vars do ambiente ou via Ansible Vault."
+      when: db_password == "PREENCHA_A_SENHA_DO_BANCO"
+
+  tasks:
+    - name: Ensure application directory exists
+      ansible.builtin.file:
+        path: "{{ app_dir }}"
+        state: directory
+        mode: "0755"
+
+    - name: Checkout application repository
+      ansible.builtin.git:
+        repo: "{{ repo_url }}"
+        dest: "{{ app_dir }}"
+        version: "{{ branch }}"
+        update: true
+        accept_hostkey: true
+
+    - name: Render environment file for Docker Compose
+      ansible.builtin.template:
+        src: "{{ playbook_dir }}/../templates/app.env.j2"
+        dest: "{{ app_dir }}/.env"
+        mode: "0600"
+
+    - name: Build and start Docker Compose services
+      ansible.builtin.command: docker compose up -d --build
+      args:
+        chdir: "{{ app_dir }}"
+      register: compose_up
+      changed_when: "'Started' in compose_up.stdout or 'Recreated' in compose_up.stdout or 'Built' in compose_up.stdout"

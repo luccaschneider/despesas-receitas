@@ -1,0 +1,29 @@
+---
+- name: Read application environment status
+  hosts: all
+  become: true
+  gather_facts: false
+
+  tasks:
+    - name: Inspect Docker Compose app service
+      ansible.builtin.command: docker compose ps app --format json
+      args:
+        chdir: "{{ app_dir }}"
+      register: compose_ps
+      changed_when: false
+      failed_when: false
+
+    - name: Resolve status marker
+      ansible.builtin.set_fact:
+        env_status: >-
+          {% if compose_ps.rc != 0 or (compose_ps.stdout | trim) == '' %}
+          stopped
+          {% elif compose_ps.stdout is search('"State":"running"') or compose_ps.stdout is search('"State": "running"') %}
+          running
+          {% else %}
+          stopped
+          {% endif %}
+
+    - name: Emit status marker for the control panel
+      ansible.builtin.debug:
+        msg: "ENV_STATUS={{ env_status | trim }}"
