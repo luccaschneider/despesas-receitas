@@ -4,7 +4,6 @@ import com.univates.despesasreceitas.entity.ConfiguracaoEmail;
 import com.univates.despesasreceitas.service.ConfiguracaoEmailService;
 import com.univates.despesasreceitas.service.EmailService;
 import org.slf4j.Logger;
-import java.util.List;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
