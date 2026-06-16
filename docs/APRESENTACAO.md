@@ -12,7 +12,7 @@ Este documento descreve a **Parte 1** da apresentação: subir o projeto do zero
 | Acesso | SSH à VM + navegador no seu computador |
 | Rede | VM com internet (GitHub + Docker Hub) |
 | Repositório | Público no GitHub (`luccaschneider/despesas-receitas`, branch `main`) |
-| Portas liberadas | `8081` (homolog) e `80` (prod) no firewall/security group |
+| Portas liberadas | `8081` (homolog) e `8082` (prod) no firewall/security group |
 
 **Usuário padrão da aplicação** (criado automaticamente pelo Flyway na primeira subida):
 
@@ -41,7 +41,7 @@ VM zerada
    ├─► Demo CRUD em homolog
    │
    ├─► deploy_prod.sh
-   │       └─ sobe produção (porta 80)
+   │       └─ sobe produção (porta 8082)
    │
    └─► Demo CRUD em produção
 ```
@@ -175,14 +175,14 @@ sudo bash /opt/app/homolog/scripts/deploy_prod.sh
 2. Gera `.env` de produção (porta `80`, banco `prod_db`, Postgres no host na porta `5433`)
 3. Sobe os containers com `docker compose up -d --build`
 
-> Produção usa **porta 80** no host e Postgres exposto em **5433** para não conflitar com homolog (5432).
+> Produção usa **porta 8082** no host (evita conflito com nginx na 80) e Postgres exposto em **5433** para não conflitar com homolog (5432).
 
 Acompanhar (opcional):
 
 ```bash
 cd /opt/app/prod
 sudo docker compose ps
-curl -s http://localhost/actuator/health
+curl -s http://localhost:8082/actuator/health
 ```
 
 ---
@@ -192,10 +192,8 @@ curl -s http://localhost/actuator/health
 **No navegador:**
 
 ```
-http://IP_DA_VM
+http://IP_DA_VM:8082
 ```
-
-(porta 80 — sem `:8081`)
 
 Login: `admin` / `admin123`
 
@@ -256,8 +254,8 @@ curl -s http://localhost:8081/actuator/health
 sudo bash /opt/app/homolog/scripts/deploy_prod.sh
 
 # 5. Verificar prod
-curl -s http://localhost/actuator/health
-# Browser: http://IP_DA_VM  →  admin / admin123
+curl -s http://localhost:8082/actuator/health
+# Browser: http://IP_DA_VM:8082  →  admin / admin123
 ```
 
 ---
@@ -268,7 +266,7 @@ curl -s http://localhost/actuator/health
 /opt/app/
 ├── homolog/          # código + docker-compose + .env (porta 8081)
 │   └── volumes Docker: banco homolog_db
-└── prod/             # código + docker-compose + .env (porta 80)
+└── prod/             # código + docker-compose + .env (porta 8082)
     └── volumes Docker: banco prod_db
 ```
 
@@ -278,7 +276,7 @@ curl -s http://localhost/actuator/health
 
 - [ ] Repositório público no GitHub com branch `main` atualizada (scripts commitados)
 - [ ] Ensaio completo em VM Ubuntu limpa (do `curl` até prod)
-- [ ] Portas 8081 e 80 liberadas no firewall
+- [ ] Portas 8081 e 8082 liberadas no firewall
 - [ ] Anotar IP da VM e testar acesso pelo navegador
 - [ ] Cronômetro: medir tempo do bootstrap (para saber quanto falar durante o build)
 - [ ] Ter plano B: se `curl` falhar, clonar manualmente e rodar `sudo bash scripts/bootstrap_homolog.sh`

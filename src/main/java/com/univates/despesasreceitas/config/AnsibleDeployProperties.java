@@ -95,7 +95,7 @@ public class AnsibleDeployProperties {
     private static List<Environment> defaultEnvironments() {
         List<Environment> defaults = new ArrayList<>();
         defaults.add(new Environment("homolog", "Homologacao", "http://localhost:8081"));
-        defaults.add(new Environment("prod", "Producao", "http://localhost"));
+        defaults.add(new Environment("prod", "Producao", "http://localhost:8082"));
         return defaults;
     }
 

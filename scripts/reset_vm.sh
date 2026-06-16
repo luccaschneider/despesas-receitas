@@ -122,9 +122,9 @@ reset_vm::print_status() {
   echo "Containers:"
   docker ps -a --format 'table {{.Names}}\t{{.Status}}\t{{.Ports}}' 2>/dev/null || docker ps -a
   echo ""
-  echo "Portas (5432 homolog-db, 5433 prod-db, 8081 app homolog, 80 app prod):"
+  echo "Portas (5432 homolog-db, 5433 prod-db, 8081 homolog, 8082 prod):"
   if command -v ss >/dev/null 2>&1; then
-    ss -tlnp | grep -E ':(5432|5433|8081|80)[[:space:]]' || echo "    Nenhuma dessas portas em uso"
+    ss -tlnp | grep -E ':(5432|5433|8081|8082)[[:space:]]' || echo "    Nenhuma dessas portas em uso"
   else
     echo "    Comando ss nao disponivel"
   fi

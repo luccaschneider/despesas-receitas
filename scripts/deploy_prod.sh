@@ -16,7 +16,7 @@ REPO_URL="$(deploy_common::default_repo_url)"
 BRANCH="$(deploy_common::default_branch)"
 DB_PASSWORD="$(deploy_common::default_db_password)"
 APP_DIR="/opt/app/prod"
-SERVER_PORT="80"
+SERVER_PORT="8082"
 ANSIBLE_ROOT="$(deploy_common::resolve_ansible_root "${SCRIPT_DIR}")"
 ANSIBLE_INVENTORY="$(deploy_common::default_ansible_inventory)"
 

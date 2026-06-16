@@ -13,7 +13,6 @@
         <p>Gerenciamento Financeiro Pessoal</p>
     </div>
     <div class="header-user">
-        <a sec:authorize="hasRole('ADMIN')" th:href="@{/admin/ambientes}" class="btn-header-link">Ambientes</a>
         <a sec:authorize="hasRole('ADMIN')" th:href="@{/admin/configuracoes}" class="btn-header-link">⚙ Configurações</a>
         <span sec:authentication="name">usuário</span>
         <form th:action="@{/logout}" method="post">

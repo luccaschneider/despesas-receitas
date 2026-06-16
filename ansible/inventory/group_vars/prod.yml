@@ -8,7 +8,7 @@ db_url: jdbc:postgresql://db:5432/prod_db
 db_user: postgres
 db_password: despesas_demo_2026
 
-server_port: "80"
+server_port: "8082"
 spring_profiles_active: prod
 
 app_email_enabled: "false"
