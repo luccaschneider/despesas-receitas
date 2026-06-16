@@ -8,7 +8,8 @@
 # Via curl:
 #   curl -fsSL https://raw.githubusercontent.com/luccaschneider/despesas-receitas/main/scripts/reset_vm.sh | sudo bash
 #
-# Padrao: remove containers, volumes, redes, diretorios de deploy e imagens da app.
+# Padrao: remove containers, volumes, redes, diretorios de deploy e imagens
+# (homolog-app, prod-app, postgres:16-alpine).
 #
 # Variavel opcional:
 #   RESET_QUICK=1   Mantem /opt/app/*, /opt/despesas-receitas e imagens Docker
@@ -158,7 +159,7 @@ reset_vm::purge_images() {
     docker rmi -f "${image}" >/dev/null 2>&1 || true
   done < <(
     docker images --format '{{.Repository}}:{{.Tag}}' 2>/dev/null \
-      | grep -E '^(homolog-app|prod-app):' || true
+      | grep -E '^(homolog-app|prod-app|postgres):' || true
   )
 }
 
@@ -190,9 +191,9 @@ reset_vm::print_status() {
   ls -ld "${HOMOLOG_DIR}" "${PROD_DIR}" "${BOOTSTRAP_DIR}" 2>/dev/null \
     || echo "    Ausentes (VM limpa para novo bootstrap)"
   echo ""
-  echo "Imagens da aplicacao:"
+  echo "Imagens do projeto (app + postgres):"
   docker images --format 'table {{.Repository}}:{{.Tag}}' 2>/dev/null \
-    | grep -E '^(REPOSITORY|homolog-app|prod-app)' || echo "    Nenhuma"
+    | grep -E '^(REPOSITORY|homolog-app|prod-app|postgres)' || echo "    Nenhuma"
 }
 
 reset_vm::require_root
@@ -233,7 +234,7 @@ if [[ "${QUICK_MODE}" == false ]]; then
   reset_vm::purge_directories
 
   echo ""
-  echo "==> [5/5] Removendo imagens Docker da aplicacao..."
+  echo "==> [5/5] Removendo imagens Docker do projeto (app + postgres)..."
   reset_vm::purge_images
 else
   echo ""

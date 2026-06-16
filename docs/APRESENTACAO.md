@@ -1,295 +1,227 @@
-# Roteiro de Apresentação — VM Zerada → Homolog → Produção
-
-Este documento descreve a **Parte 1** da apresentação: subir o projeto do zero em uma VM Ubuntu limpa, demonstrar homologação e produção com CRUD básico.
+# Roteiro de Apresentação
 
 ---
 
-## Pré-requisitos
+## Referência
 
-| Item | Detalhe |
-|------|---------|
-| SO da VM | Ubuntu 22.04 ou 24.04 (recomendado) |
-| Acesso | SSH à VM + navegador no seu computador |
-| Rede | VM com internet (GitHub + Docker Hub) |
-| Repositório | Público no GitHub (`luccaschneider/despesas-receitas`, branch `main`) |
-| Portas liberadas | `8081` (homolog) e `8082` (prod) no firewall/security group |
+| Item | Valor |
+|------|--------|
+| Login app | `admin` / `admin123` |
+| Senha banco (demo) | `despesas_demo_2026` |
+| Homolog | `http://IP_DA_VM:8081` — banco `homolog_db`, Postgres host `5432` |
+| Produção | `http://IP_DA_VM:8082` — banco `prod_db`, Postgres host `5433` |
+| Paths na VM | `/opt/app/homolog`, `/opt/app/prod`, `/opt/despesas-receitas` |
 
-**Usuário padrão da aplicação** (criado automaticamente pelo Flyway na primeira subida):
-
-| Campo | Valor |
-|-------|-------|
-| Login | `admin` |
-| Senha | `admin123` |
-| Perfil | ADMIN (acesso a Ambientes e Configurações) |
-
-A senha do banco usada nos scripts de demo é `despesas_demo_2026` (apenas para apresentação; troque em ambientes reais).
+**Deploy para atualizar código:** `deploy_homolog.sh` e `deploy_prod.sh` fazem `git pull` no GitHub, regeneram `.env`, `docker compose up --build` e o Flyway roda na subida da app.
 
 ---
 
-## Visão geral do fluxo
+## Parte 1 — VM zerada → homolog → prod
 
-```
-VM zerada
-   │
-   ├─► Mostrar que Docker está vazio
-   │
-   ├─► 1 comando: bootstrap_homolog.sh
-   │       ├─ instala Git, Ansible e Docker
-   │       ├─ clona o repositório (playbooks)
-   │       └─ Ansible sobe homologação (porta 8081)
-   │
-   ├─► Demo CRUD em homolog
-   │
-   ├─► deploy_prod.sh
-   │       └─ sobe produção (porta 8082)
-   │
-   └─► Demo CRUD em produção
-```
-
----
-
-## Passo a passo (comandos na ordem)
-
-### 0. Conectar na VM
-
-No seu computador:
+### Reset (entre ensaios)
 
 ```bash
-ssh usuario@IP_DA_VM
+curl -fsSL https://raw.githubusercontent.com/luccaschneider/despesas-receitas/main/scripts/reset_vm.sh | sudo bash
 ```
 
-Substitua `usuario` e `IP_DA_VM` pelos valores reais.
+Limpa containers, volumes, redes, `/opt/app/*`, `/opt/despesas-receitas` e imagens (app + postgres).
 
----
-
-### 1. Mostrar que a VM está “zerada”
-
-Execute e comente o que aparece (listas vazias ou quase vazias):
+### Mostrar VM vazia
 
 ```bash
-docker ps -a
-docker images
-docker compose version
-ls /opt/app 2>/dev/null || echo "/opt/app ainda não existe"
+sudo docker ps -a
+sudo docker images
 ```
 
-**O que dizer:** “Ainda não temos containers, imagens da aplicação nem diretórios de deploy.”
-
----
-
-### 2. Subir homologação com um único comando
-
-Este é o comando principal da apresentação. Ele baixa o script do GitHub e executa tudo:
+### Subir homolog (primeira vez)
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/luccaschneider/despesas-receitas/main/scripts/bootstrap_homolog.sh | sudo bash
 ```
 
-**O que esse comando faz:**
-
-1. Atualiza pacotes e instala Git, curl e Ansible
-2. Instala Docker Engine + Docker Compose (repositório oficial Ubuntu)
-3. Clona o repositório em `/opt/despesas-receitas` (playbooks Ansible)
-4. Executa `ansible-playbook deploy.yml -l homolog` (clone em `/opt/app/homolog`, `.env` e `docker compose up`)
-
-> **Tempo estimado:** 5–15 minutos na primeira vez (download de imagens + build Maven dentro do Docker). Vale ensaiar antes.
-
-**Alternativa** (se o repositório ainda não estiver no GitHub ou quiser testar localmente):
-
-```bash
-# Na VM, após copiar/clonar o projeto manualmente:
-sudo bash scripts/bootstrap_homolog.sh
-```
-
----
-
-### 3. Acompanhar o deploy (opcional, se quiser mostrar logs)
-
-Em outro terminal SSH:
-
-```bash
-cd /opt/app/homolog
-sudo docker compose ps
-sudo docker compose logs -f app
-```
-
-Aguarde até o healthcheck ficar saudável. Pressione `Ctrl+C` para sair dos logs.
-
-Verificar saúde via HTTP:
-
 ```bash
 curl -s http://localhost:8081/actuator/health
 ```
 
-Resposta esperada: `"status":"UP"`.
 
----
-
-### 4. Mostrar que homolog está rodando
-
-```bash
-docker ps
-docker images
-ls -la /opt/app/homolog
-```
-
-**No navegador** (no seu PC, não na VM):
-
-```
-http://IP_DA_VM:8081
-```
-
-**Login:**
-
-- Usuário: `admin`
-- Senha: `admin123`
-
----
-
-### 5. Demo CRUD em homologação
-
-Sugestão de roteiro na interface:
-
-1. **Listar** — mostrar lançamentos de exemplo (seed do Flyway)
-2. **Criar** — `+ Novo` → receita ou despesa → salvar
-3. **Editar** — alterar um lançamento existente
-4. **Excluir** — remover o que acabou de criar (com confirmação)
-5. **Filtrar** — usar filtros por data/tipo/situação
-6. *(Opcional)* **Exportar PDF**
-
-**O que dizer:** “Homologação roda na porta 8081, com perfil Spring `homolog`, banco `homolog_db` e dados isolados de produção.”
-
----
-
-### 6. Subir produção
-
-Com homolog já no ar, execute:
+### Subir produção (primeira vez)
 
 ```bash
 sudo bash /opt/app/homolog/scripts/deploy_prod.sh
 ```
 
-**O que esse comando faz:**
-
-1. Clona/atualiza o repositório em `/opt/app/prod`
-2. Gera `.env` de produção (porta `80`, banco `prod_db`, Postgres no host na porta `5433`)
-3. Sobe os containers com `docker compose up -d --build`
-
-> Produção usa **porta 8082** no host (evita conflito com nginx na 80) e Postgres exposto em **5433** para não conflitar com homolog (5432).
-
-Acompanhar (opcional):
-
 ```bash
-cd /opt/app/prod
-sudo docker compose ps
 curl -s http://localhost:8082/actuator/health
 ```
 
 ---
 
-### 7. Demo CRUD em produção
+## Parte 2 — Código, CI e correção (no seu PC + GitHub)
 
-**No navegador:**
+### O que preparar no código (antes ou ao vivo)
 
+1. **Visual** — ex.: alterar um texto em `src/main/resources/templates/lancamentos.html` (label no header ou título).
+2. **Migration** — ex.: `src/main/resources/db/migration/V6__create_tipo.sql`:
+
+```sql
+CREATE TABLE tipo (
+    id   BIGSERIAL PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL
+);
 ```
-http://IP_DA_VM:8082
+
+3. **Quebrar QA** — introduzir violação de Checkstyle em algum `.java` (linha longa, import não usado, etc.).
+
+### Fluxo Git / Actions
+
+```bash
+# Commit 1: feature + erro de checkstyle
+git add .
+git commit -m "feat: label demo e tabela tipo"
+git push origin main
 ```
 
-Login: `admin` / `admin123`
+Abrir **GitHub → Actions** e mostrar falha no job **QA (Checkstyle)** (testes podem passar; checkstyle falha).
 
-Repita o CRUD básico. **Destaque:** os dados de produção são independentes dos de homolog (bancos e volumes Docker separados).
+```bash
+# Commit 2: corrigir só o checkstyle
+git add .
+git commit -m "fix: checkstyle"
+git push origin main
+```
+
+Mostrar Actions **verde** (testes + checkstyle + docker build).
+
+> Ordem no CI: `mvn clean test` → `mvn checkstyle:check` → `docker build`.
 
 ---
 
-### 8. Comandos úteis para encerrar ou troubleshooting
+## Parte 3 — Atualizar homolog (código novo na VM)
 
-**Reset entre testes** (deixa a VM limpa para um novo bootstrap):
+**Pré-requisito:** commit corrigido já no `main` do GitHub.
 
 ```bash
-# Padrao: remove containers, volumes, redes, /opt/app/*, /opt/despesas-receitas e imagens homolog-app/prod-app
-curl -fsSL https://raw.githubusercontent.com/luccaschneider/despesas-receitas/main/scripts/reset_vm.sh | sudo bash
-
-# Modo rapido: so para/remove containers e volumes (mantem clones e imagens)
-curl -fsSL https://raw.githubusercontent.com/luccaschneider/despesas-receitas/main/scripts/reset_vm.sh | sudo RESET_QUICK=1 bash
+sudo bash /opt/app/homolog/scripts/deploy_homolog.sh
 ```
 
+### Mostrar tabela nova no Postgres (homolog)
+
 ```bash
-# Status dos dois ambientes
+sudo docker compose -f /opt/app/homolog/docker-compose.yml exec db \
+  psql -U postgres -d homolog_db -c "\dt"
+
+sudo docker compose -f /opt/app/homolog/docker-compose.yml exec db \
+  psql -U postgres -d homolog_db -c "\d tipo"
+```
+
+---
+
+## Parte 4 — Atualizar produção
+
+```bash
+sudo bash /opt/app/homolog/scripts/deploy_prod.sh
+```
+
+### Postgres (prod)
+
+```bash
+sudo docker compose -f /opt/app/prod/docker-compose.yml exec db \
+  psql -U postgres -d prod_db -c "\dt"
+
+sudo docker compose -f /opt/app/prod/docker-compose.yml exec db \
+  psql -U postgres -d prod_db -c "\d tipo"
+```
+
+---
+
+## Comandos auxiliares
+
+### Status e logs
+
+```bash
 sudo docker compose -f /opt/app/homolog/docker-compose.yml ps
 sudo docker compose -f /opt/app/prod/docker-compose.yml ps
-
-# Parar homolog (mantém volumes/dados)
-cd /opt/app/homolog && sudo docker compose stop
-
-# Parar produção
-cd /opt/app/prod && sudo docker compose stop
-
-# Logs
 sudo docker compose -f /opt/app/homolog/docker-compose.yml logs -f app
 sudo docker compose -f /opt/app/prod/docker-compose.yml logs -f app
 ```
 
----
-
-## Resumo dos comandos (cola rápida)
+### Parar sem apagar dados
 
 ```bash
-# 0. Limpar VM entre testes
-curl -fsSL https://raw.githubusercontent.com/luccaschneider/despesas-receitas/main/scripts/reset_vm.sh | sudo bash
+cd /opt/app/homolog && sudo docker compose stop
+cd /opt/app/prod && sudo docker compose stop
+```
 
-# 1. VM zerada — mostrar estado vazio
-docker ps -a && docker images
+### Portas em uso
 
-# 2. Um comando: dependências + clone + homolog
-curl -fsSL https://raw.githubusercontent.com/luccaschneider/despesas-receitas/main/scripts/bootstrap_homolog.sh | sudo bash
+```bash
+sudo ss -tlnp | grep -E ':8081|:8082|:5432|:5433'
+```
 
-# 3. Verificar homolog
-curl -s http://localhost:8081/actuator/health
-# Browser: http://IP_DA_VM:8081  →  admin / admin123
+### Postgres do sistema (conflito na 5432)
 
-# 4. Subir produção
+```bash
+sudo systemctl stop postgresql
+```
+
+### Reset rápido (mantém clones, só containers)
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/luccaschneider/despesas-receitas/main/scripts/reset_vm.sh | sudo RESET_QUICK=1 bash
+```
+
+### Remover imagem postgres manualmente
+
+```bash
+sudo docker rmi -f postgres:16-alpine
+```
+
+### Conferir `.env` de prod (porta)
+
+```bash
+grep SERVER_PORT /opt/app/prod/.env
+# Esperado: SERVER_PORT=8082
+```
+
+---
+
+## Cola rápida (ordem completa)
+
+```bash
+# --- Infra ---
+curl -fsSL .../reset_vm.sh | sudo bash
+curl -fsSL .../bootstrap_homolog.sh | sudo bash
 sudo bash /opt/app/homolog/scripts/deploy_prod.sh
 
-# 5. Verificar prod
-curl -s http://localhost:8082/actuator/health
-# Browser: http://IP_DA_VM:8082  →  admin / admin123
+# --- Após push no GitHub (CI ok) ---
+sudo bash /opt/app/homolog/scripts/deploy_homolog.sh
+sudo bash /opt/app/homolog/scripts/deploy_prod.sh
 ```
 
 ---
 
-## Estrutura na VM após a apresentação
+## Checklist antes do dia
 
-```
-/opt/app/
-├── homolog/          # código + docker-compose + .env (porta 8081)
-│   └── volumes Docker: banco homolog_db
-└── prod/             # código + docker-compose + .env (porta 8082)
-    └── volumes Docker: banco prod_db
-```
-
----
-
-## Checklist antes do dia da apresentação
-
-- [ ] Repositório público no GitHub com branch `main` atualizada (scripts commitados)
-- [ ] Ensaio completo em VM Ubuntu limpa (do `curl` até prod)
+- [ ] `main` no GitHub com scripts e inventário Ansible corrigidos
 - [ ] Portas 8081 e 8082 liberadas no firewall
-- [ ] Anotar IP da VM e testar acesso pelo navegador
-- [ ] Cronômetro: medir tempo do bootstrap (para saber quanto falar durante o build)
-- [ ] Ter plano B: se `curl` falhar, clonar manualmente e rodar `sudo bash scripts/bootstrap_homolog.sh`
+- [ ] Ensaio: reset → bootstrap → prod → push → deploy homolog → deploy prod
+- [ ] IP da VM anotado; browser testado
+- [ ] Commits da Parte 2 preparados (ou roteiro do que editar ao vivo)
+- [ ] Não usar painel **Ambientes** na VM (roda dentro do Docker; use os scripts)
 
 ---
 
-## Outras formas de fazer (referência)
+## Estrutura na VM
 
-| Abordagem | Quando usar |
-|-----------|-------------|
-| `curl \| sudo bash` | **Recomendado na apresentação** — um comando, VM sem Git prévio |
-| `setup_vm.sh` + `deploy_homolog.sh` | Dois passos, mais controle |
-| Painel `/admin/ambientes` (Ansible) | Parte 2 da apresentação; exige app já rodando e Ansible/SSH configurados |
+```
+/opt/app/homolog/   → homolog (8081, homolog_db)
+/opt/app/prod/      → prod (8082, prod_db)
+/opt/despesas-receitas/ → playbooks Ansible (bootstrap)
+```
 
----
-
-## Parte 2 (futuro)
-
-O painel **Admin → Ambientes** (`/admin/ambientes`) permite subir/parar homolog e prod via Ansible. Depende de configuração extra (inventário SSH, senhas no `group_vars`). A Parte 1 acima usa apenas os scripts Bash e não precisa do painel Ansible.
+| Script | Quando usar |
+|--------|-------------|
+| `bootstrap_homolog.sh` | VM zerada → instala deps + homolog |
+| `deploy_homolog.sh` | Atualizar homolog (git + rebuild) |
+| `deploy_prod.sh` | Subir ou atualizar prod |
+| `reset_vm.sh` | Limpar tudo entre ensaios |
