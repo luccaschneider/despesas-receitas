@@ -11,6 +11,17 @@
       when: db_password == "PREENCHA_A_SENHA_DO_BANCO"
 
   tasks:
+    - name: Check whether application directory is a Git repository
+      ansible.builtin.stat:
+        path: "{{ app_dir }}/.git"
+      register: app_git
+
+    - name: Remove stale application directory before checkout
+      ansible.builtin.file:
+        path: "{{ app_dir }}"
+        state: absent
+      when: not app_git.stat.exists
+
     - name: Ensure application directory exists
       ansible.builtin.file:
         path: "{{ app_dir }}"

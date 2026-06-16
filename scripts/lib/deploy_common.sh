@@ -85,3 +85,137 @@ deploy_common::print_email_defaults() {
   export APP_EMAIL_SMTP_STARTTLS="${APP_EMAIL_SMTP_STARTTLS:-true}"
   export APP_EMAIL_SMTP_DEBUG="${APP_EMAIL_SMTP_DEBUG:-false}"
 }
+
+deploy_common::default_ansible_inventory() {
+  echo "${ANSIBLE_INVENTORY:-ansible/inventory/hosts.yml}"
+}
+
+deploy_common::default_bootstrap_repo_dir() {
+  echo "${BOOTSTRAP_REPO_DIR:-/opt/despesas-receitas}"
+}
+
+deploy_common::ensure_ansible_installed() {
+  if command -v ansible-playbook &> /dev/null; then
+    echo "    Ansible ja instalado: $(ansible-playbook --version | head -n1)"
+    return 0
+  fi
+
+  echo "    Instalando Ansible..."
+  export DEBIAN_FRONTEND=noninteractive
+  apt-get update -y
+  apt-get install -y ansible
+}
+
+deploy_common::resolve_ansible_root() {
+  local script_dir="${1:-}"
+  local candidates=()
+
+  if [[ -n "${script_dir}" && -f "${script_dir}/../ansible/playbooks/deploy.yml" ]]; then
+    candidates+=("$(cd "${script_dir}/.." && pwd)")
+  fi
+
+  candidates+=("$(deploy_common::default_bootstrap_repo_dir)")
+  candidates+=("/opt/app/homolog")
+
+  local candidate
+  for candidate in "${candidates[@]}"; do
+    if [[ -f "${candidate}/ansible/playbooks/deploy.yml" ]]; then
+      echo "${candidate}"
+      return 0
+    fi
+  done
+
+  echo "[ERRO] Nao foi possivel localizar ansible/playbooks/deploy.yml." >&2
+  echo "       Execute o bootstrap ou clone o repositorio antes do deploy." >&2
+  exit 1
+}
+
+deploy_common::clone_bootstrap_repo() {
+  local repo_url="$1"
+  local branch="$2"
+  local repo_dir="$3"
+
+  mkdir -p "$(dirname "${repo_dir}")"
+
+  if [[ ! -d "${repo_dir}/.git" ]]; then
+    echo "    Clonando repositorio em ${repo_dir}..."
+    git clone --branch "${branch}" --depth 1 "${repo_url}" "${repo_dir}"
+    return 0
+  fi
+
+  echo "    Repositorio ja existe em ${repo_dir} — atualizando..."
+  git -C "${repo_dir}" fetch --depth 1 origin "${branch}"
+  git -C "${repo_dir}" checkout "${branch}"
+  git -C "${repo_dir}" pull --ff-only origin "${branch}"
+}
+
+deploy_common::run_ansible_deploy() {
+  local environment="$1"
+  local ansible_root="$2"
+  local inventory="${3:-$(deploy_common::default_ansible_inventory)}"
+  local repo_url="${4:-$(deploy_common::default_repo_url)}"
+  local branch="${5:-$(deploy_common::default_branch)}"
+  local db_password="${6:-$(deploy_common::default_db_password)}"
+
+  if [[ ! -f "${ansible_root}/${inventory}" ]]; then
+    echo "[ERRO] Inventario Ansible nao encontrado: ${ansible_root}/${inventory}" >&2
+    exit 1
+  fi
+
+  if ! command -v ansible-playbook &> /dev/null; then
+    echo "[ERRO] ansible-playbook nao encontrado. Execute o bootstrap ou instale o Ansible." >&2
+    exit 1
+  fi
+
+  echo "    Ansible root  = ${ansible_root}"
+  echo "    Inventario    = ${inventory}"
+  echo "    Ambiente      = ${environment}"
+  echo "    Repositorio   = ${repo_url} (${branch})"
+
+  (
+    cd "${ansible_root}"
+    ansible-playbook \
+      -i "${inventory}" \
+      ansible/playbooks/deploy.yml \
+      -l "${environment}" \
+      -e "repo_url=${repo_url}" \
+      -e "branch=${branch}" \
+      -e "db_password=${db_password}"
+  )
+}
+
+deploy_common::print_deploy_success() {
+  local environment="$1"
+  local server_port="$2"
+  local app_dir="$3"
+
+  local vm_ip
+  vm_ip="$(hostname -I 2>/dev/null | awk '{print $1}')"
+  vm_ip="${vm_ip:-<IP_DA_VM>}"
+
+  local url="http://${vm_ip}"
+  if [[ "${server_port}" != "80" ]]; then
+    url="${url}:${server_port}"
+  fi
+
+  local title
+  if [[ "${environment}" == "prod" ]]; then
+    title="Producao pronta!"
+  else
+    title="Homologacao pronta!"
+  fi
+
+  echo ""
+  echo "========================================================"
+  echo "  ${title}"
+  echo "  URL   : ${url}"
+  echo "  Login : admin"
+  echo "  Senha : admin123"
+  echo "  Logs  : docker compose -f ${app_dir}/docker-compose.yml logs -f app"
+  if [[ "${environment}" == "homolog" ]]; then
+    echo ""
+    echo "  Proximo passo (producao):"
+    echo "    sudo bash ${app_dir}/scripts/deploy_prod.sh"
+  fi
+  echo "========================================================"
+}

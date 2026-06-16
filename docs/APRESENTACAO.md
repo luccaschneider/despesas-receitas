@@ -34,9 +34,9 @@ VM zerada
    ├─► Mostrar que Docker está vazio
    │
    ├─► 1 comando: bootstrap_homolog.sh
-   │       ├─ instala Git + Docker
-   │       ├─ clona o repositório
-   │       └─ sobe homologação (porta 8081)
+   │       ├─ instala Git, Ansible e Docker
+   │       ├─ clona o repositório (playbooks)
+   │       └─ Ansible sobe homologação (porta 8081)
    │
    ├─► Demo CRUD em homolog
    │
@@ -87,11 +87,10 @@ curl -fsSL https://raw.githubusercontent.com/luccaschneider/despesas-receitas/ma
 
 **O que esse comando faz:**
 
-1. Atualiza pacotes e instala Git, curl
+1. Atualiza pacotes e instala Git, curl e Ansible
 2. Instala Docker Engine + Docker Compose (repositório oficial Ubuntu)
-3. Clona `https://github.com/luccaschneider/despesas-receitas.git` em `/opt/app/homolog`
-4. Gera o arquivo `.env` com as variáveis de homologação
-5. Executa `docker compose up -d --build`
+3. Clona o repositório em `/opt/despesas-receitas` (playbooks Ansible)
+4. Executa `ansible-playbook deploy.yml -l homolog` (clone em `/opt/app/homolog`, `.env` e `docker compose up`)
 
 > **Tempo estimado:** 5–15 minutos na primeira vez (download de imagens + build Maven dentro do Docker). Vale ensaiar antes.
 
