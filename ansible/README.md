@@ -4,7 +4,7 @@ Este diretorio contem os playbooks usados pelo painel `/admin/ambientes`, pelos 
 
 ## Arquivos principais
 
-- `inventory/hosts.yml`: inventario padrao para deploy **na propria VM** (`ansible_connection: local`).
+- `inventory/hosts.yml`: inventario padrao para deploy **na propria VM** (`ansible_connection: local`). Cada ambiente tem host proprio (`homolog-vm`, `prod-vm`) para nao misturar `group_vars`.
 - `inventory/hosts-dev.yml`: inventario para dev local com tunel SSH ate a VM.
 - `inventory/group_vars/homolog.yml`: variaveis de homologacao.
 - `inventory/group_vars/prod.yml`: variaveis de producao.
