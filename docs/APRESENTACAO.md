@@ -58,11 +58,52 @@ curl -s http://localhost:8082/actuator/health
 
 ---
 
-## Parte 2 — Código, CI e correção (no seu PC + GitHub)
+## Repetir apresentação (desfazer V6 / tabela tipo)
+
+Flyway guarda migrations aplicadas em `flyway_schema_history`. **Nao basta apagar o arquivo V6** — e preciso desfazer no banco tambem (ou resetar volumes).
+
+### Opcao A — VM limpa (mais simples)
+
+```bash
+curl -fsSL .../reset_vm.sh | sudo bash
+curl -fsSL .../bootstrap_homolog.sh | sudo bash
+```
+
+Banco novo; migrations V1–V5 so. Crie `V6__create_tipo.sql` de novo na apresentacao.
+
+### Opcao B — Manter dados (lancamentos, homolog ja no ar)
+
+**1. No repositorio:** remova `V6__create_tipo.sql` e de push no `main`.
+
+**2. Na VM** (com db rodando):
+
+```bash
+sudo bash /opt/app/homolog/scripts/rewind_demo_migration.sh
+```
+
+Isso executa em homolog e prod:
+
+- `DROP TABLE IF EXISTS tipo`
+- `DELETE FROM flyway_schema_history WHERE version = '6'`
+
+**3. Conferir:**
+
+```bash
+sudo docker compose -f /opt/app/homolog/docker-compose.yml exec db \
+  psql -U postgres -d homolog_db -c "SELECT version, description FROM flyway_schema_history ORDER BY installed_rank;"
+```
+
+Nao deve aparecer versao `6`. Tabela `tipo` nao deve existir (`\dt`).
+
+**4. Na proxima apresentacao:** recrie `V6__create_tipo.sql`, commit, deploy — Flyway aplica de novo.
+
+> **Nunca** apague um arquivo `V*__*.sql` ja aplicado em producao real sem o passo do `flyway_schema_history`. Para demo, o script acima e suficiente.
+
+---
 
 ### O que preparar no código (antes ou ao vivo)
 
-1. **Visual** — ex.: alterar um texto em `src/main/resources/templates/lancamentos.html` (label no header ou título).
+1. **Visual** — ex.: alterar um texto em `src/main/resources/templates/lancamentos.html` (label no header ou título). 
 2. **Migration** — ex.: `src/main/resources/db/migration/V6__create_tipo.sql`:
 
 ```sql
@@ -72,7 +113,7 @@ CREATE TABLE tipo (
 );
 ```
 
-3. **Quebrar QA** — introduzir violação de Checkstyle em algum `.java` (linha longa, import não usado, etc.).
+3. **Quebrar QA** — adicione import nao usado em `AdminController.java` (ex.: `import java.util.List;` comentado ou sem uso)
 
 ### Fluxo Git / Actions
 
@@ -227,3 +268,4 @@ sudo bash /opt/app/homolog/scripts/deploy_prod.sh
 | `deploy_homolog.sh` | Atualizar homolog (git + rebuild) |
 | `deploy_prod.sh` | Subir ou atualizar prod |
 | `reset_vm.sh` | Limpar tudo entre ensaios |
+| `rewind_demo_migration.sh` | Desfazer só V6/tabela tipo (mantem lancamentos) |
