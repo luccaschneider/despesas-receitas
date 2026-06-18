@@ -39,7 +39,7 @@ sudo bash /opt/app/homolog/scripts/deploy_prod.sh
 
 ---
 
-### O que preparar no código (antes ou ao vivo)
+
 
 1. **Visual** — ex.: alterar um texto em `src/main/resources/templates/lancamentos.html` (label no header ou título). 
 2. **Migration** — ex.: `src/main/resources/db/migration/V6__create_tipo.sql`:
@@ -51,7 +51,7 @@ CREATE TABLE tipo (
 );
 ```
 
-3. **Quebrar QA** — adicione import nao usado em `AdminController.java` (ex.: `import java.util.List;` comentado ou sem uso)
+3. **QA** — adicione import nao usado em `AdminController.java` 
 
 ### Fluxo Git / Actions
 
