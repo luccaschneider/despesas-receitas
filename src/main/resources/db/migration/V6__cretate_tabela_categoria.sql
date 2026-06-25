@@ -1,4 +1,0 @@
-CREATE TABLE categoria (
-    id   BIGSERIAL PRIMARY KEY,
-    nome VARCHAR(100) NOT NULL
-);
